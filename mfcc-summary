@@ -1,0 +1,14 @@
+Tutorial with pictures [https://haythamfayek.com/2016/04/21/speech-processing-for-machine-learning.html#fn:1](here)
+
+1. Extract magnitude spectrogram from audio
+2. Transform to mel scale
+3. Apply log to magnitudes
+4. Run discrete cosine transform on frequency bins per each timestep.
+
+The DCT is a linear transformation. The transformation matrix is orthogonal and decorrelates the frequency bins.
+On decorrelation and orthogonal transformations [https://stats.stackexchange.com/questions/275692/how-do-pca-svd-decorrelate-the-variables](here)
+
+Only 12-13 lowest resulting bins are kept--the high frequency components supposedly decrease ASR systems performance.
+Possibly [https://dsp.stackexchange.com/questions/26019/sinusoidal-liftering-in-implementations-of-mfcc](signal liftering) (filtering of MFCC) 
+can be used to remove noise from high freq. components and balance the spectrom.
+Similarly, mean normalization can be applied - normalize each freq. bin by mean for given frequency.
